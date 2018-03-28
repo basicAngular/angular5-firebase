@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Form to enter data</h2>
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label  for="firstName">First Name</label>
+                    <input type="text" class="form-control" placeholder="Enter First Name..."
+                           id="firstName" required [(ngModel)]="user.firstName" name="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Last Name..."
+                           id="lastName" required [(ngModel)]="user.lastName" name="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control" placeholder="please enter your age"
+                        id="age" required [(ngModel)]="user.age" name="age" >
+                </div>
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>Content from Firebase</h2>
+            <table class="table table-hover">
+            	<thead>
+            		<tr>
+            			<th>First Name</th>
+            			<th>Last Name</th>
+            			<th>Age</th>
+            			<th>Delete</th>
+            			<th>Edit</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr *ngFor="let user of users | async">
+            			<td> {{user.firstName}}</td>
+            			<td> {{user.lastName}}</td>
+            			<td> {{user.age}}</td>
+            			<td> <button (click)="deleteUser(user.$key)">Delete</button></td>
+            			<td> <button (click)="editUser(user.$key)">Edit</button></td>
+            		</tr>
+                {{user.firstName}}
+            	</tbody>
+            </table>
+        </div>
+    </div>
+</div>
