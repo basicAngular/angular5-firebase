@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   users: FirebaseListObservable<any[]>;
   constructor(private db: AngularFireDatabase) {}
 
+
   ngOnInit() {
     this.users = this.db.list('/users');
   }
@@ -30,7 +31,19 @@ export class AppComponent implements OnInit {
   }
 
   editUser(key: string){
-    
+    this.user = this.db.object('/users/'+key);
+    this.user.subscribe(snapshot => {
+      this.user = snapshot;
+    });
+  }
+
+  updateActive(key: string){
+    this.users.update(key,this.user);
+    this.user = {};
+  }
+
+  resetForm(){
+    this.user = {};
   }
 
 }

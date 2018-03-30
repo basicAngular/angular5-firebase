@@ -21,9 +21,13 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "angular5-data-table": "^0.5.1",
     "angularfire2": "^5.0.0-rc.6",
     "core-js": "^2.4.1",
     "firebase": "^4.12.0",
+    "jquery": "^3.3.1",
+    "ngx-toastr": "^8.3.2",
+    "promise-polyfill": "^7.1.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
